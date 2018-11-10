@@ -11,7 +11,7 @@ class Header extends Component {
     return(
       <div>
         <img src={logo} class="logo"/>
-        <input/>
+        <input class="search" placeholder="looking for something specific?"/>
       </div>
 
     );

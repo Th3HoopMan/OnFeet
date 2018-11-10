@@ -3,5 +3,18 @@ body {
 }
 
 .logo {
-  height: 50px;
+  height: 40px;
+  margin: 10px 0 0 10px;
+}
+
+.search {
+  height: 20px;
+  float: right;
+  margin: 10px 10px 0 0;
+  padding: 15px;
+  border-radius:5px;
+  font-size: 12px;
+  width: 250px;
+  color: white;
+  opacity: .65;
 }
