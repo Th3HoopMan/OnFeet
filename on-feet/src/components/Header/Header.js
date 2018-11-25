@@ -10,8 +10,8 @@ class Header extends Component {
   render(){
     return(
       <div>
-        <img src={logo} class="logo"/>
-        <input class="search" placeholder="looking for something specific?"/>
+        <img src={logo} className="logo"/>
+        <input className="search" placeholder="looking for something specific?"/>
       </div>
 
     );
