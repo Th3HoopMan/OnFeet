@@ -14,14 +14,14 @@ const middleware = [thunk];
 // https://github.com/reduxjs/redux-thunk
 //
 // The last line enables Redux Devtools extension
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
 const store = createStore(
   rootReducer,
   initialState,
-  compose(
+  composeEnhancers(
     applyMiddleware(...middleware),
-    //applys redux dev tools extension
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-  )
+    )
 );
 
 export default store;

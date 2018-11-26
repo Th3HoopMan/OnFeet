@@ -1,32 +1,42 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { toggleModal } from '../../actions/modalActions';
+
+import AboutModal from '../Modals/AboutModal/AboutModal';
+import SupportModal from '../Modals/SupportModal/SupportModal';
 
 class ModalManager extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {activeModal: null};
-  }
+  modalManager(){
+    switch (this.props.modal) {
+      case 'ABOUT':
+        return <AboutModal/>;
 
-  triggerModal(modal){
-      this.setState({
-        activeModal: modal
-      });
+      case 'SUPPORT':
+        return <SupportModal/>;
+      //
+      // case 'IMAGE':
+      //   return <ImageModal/>;
+      default:
+        return null;
+    }
   }
 
   render(){
     return(
-      switch (this.state.activeModal) {
-        case 'ABOUT':
-          return <AboutModal {..props}/>;
-
-        case 'SUPPORT':
-          return <SupportModal {..props}/>;
-
-        case 'IMAGE':
-          return <ImageModal {..props}/>;
-
-        default:
-          return null;
-      }
+      <div>
+      {this.modalManager()}
+      </div>
     );
   }
 }
+
+ModalManager.propTypes = {
+    modal: PropTypes.string.isRequired
+}
+
+const mapStateToProps = state => ({
+    modal: state.modal.modal
+});
+
+export default connect(mapStateToProps)(ModalManager);

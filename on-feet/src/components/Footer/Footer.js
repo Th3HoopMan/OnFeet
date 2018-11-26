@@ -5,9 +5,6 @@ import { toggleModal } from '../../actions/modalActions';
 
 import './Footer.css'
 
-import AboutModal from '../Modals/AboutModal/AboutModal';
-import SupportModal from '../Modals/SupportModal/SupportModal';
-
 // Props:
 //
 // Component Function:
@@ -18,7 +15,7 @@ import SupportModal from '../Modals/SupportModal/SupportModal';
 class Footer extends Component {
 
   openAbout = () => {
-    this.props.toggleModal("ABOUT");
+    this.props.toggleModal("");
   }
 
   openSupport = () => {
@@ -30,8 +27,6 @@ class Footer extends Component {
       <div className="main">
         <p onClick={this.openAbout}>about.</p>
         <p onClick={this.openSupport}>support.</p>
-        <SupportModal/>
-        <h1>{this.props.modal}</h1>
       </div>
     );
   }
@@ -39,13 +34,11 @@ class Footer extends Component {
 
 Footer.propTypes = {
     toggleModal: PropTypes.func.isRequired,
-    modal: PropTypes.string.isRequired,
-    isHidden: PropTypes.bool.isRequired
+    modal: PropTypes.string.isRequired
 }
 
 const mapStateToProps = state => ({
-    modal: state.modal.modal,
-    isHidden: state.isHidden
+    modal: state.modal.modal
 });
 
 export default connect(mapStateToProps, { toggleModal })(Footer);
